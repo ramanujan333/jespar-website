@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Skin Barrier Assessment | Jespar Naturals</title>
+    <meta name="description" content="Take our 45-second clinical skin barrier assessment to unlock your 15% VIP Launch Discount Code + Free Skin Barrier Care Guide.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        .survey-container {
+            max-width: 760px;
+            margin: 40px auto;
+            padding: 32px 24px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(43, 26, 19, 0.06);
+            border: 1px solid rgba(184, 109, 67, 0.15);
+        }
+        .survey-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .badge-tag {
+            display: inline-block;
+            background: rgba(184, 109, 67, 0.1);
+            color: #b86d43;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .survey-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #2b1a13;
+            margin-bottom: 12px;
+        }
+        .survey-desc {
+            color: #6b6851;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .form-group {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(184, 109, 67, 0.2);
+        }
+        .form-group:last-child {
+            border-bottom: none;
+        }
+        .question-label {
+            font-weight: 600;
+            font-size: 17px;
+            color: #2b1a13;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .question-subtext {
+            font-size: 13px;
+            color: #8c857b;
+            margin-top: -8px;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .option-card {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            border: 1.5px solid #e8e2dc;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #faf7f5;
+        }
+        .option-card:hover {
+            border-color: #b86d43;
+            background: #fff9f5;
+        }
+        .option-card input[type="radio"],
+        .option-card input[type="checkbox"] {
+            margin-right: 14px;
+            accent-color: #b86d43;
+            width: 18px;
+            height: 18px;
+        }
+        .option-text {
+            font-size: 15px;
+            color: #3d2d24;
+            font-weight: 500;
+        }
+        .text-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid #e8e2dc;
+            border-radius: 12px;
+            font-size: 15px;
+            color: #2b1a13;
+            outline: none;
+            transition: border-color 0.2s;
+            background: #faf7f5;
+        }
+        .text-input:focus {
+            border-color: #b86d43;
+            background: #ffffff;
+        }
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #b86d43 0%, #8f4d27 100%);
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 700;
+            padding: 18px;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(184, 109, 67, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(184, 109, 67, 0.4);
+        }
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(43, 26, 19, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-card {
+            background: #ffffff;
+            border-radius: 24px;
+            max-width: 520px;
+            width: 100%;
+            padding: 36px 28px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .voucher-box {
+            background: #2b1a13;
+            color: #faf4ef;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border: 2px dashed #d49b6a;
+        }
+        .voucher-code {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: #ffffff;
+            margin: 8px 0;
+        }
+        .btn-secondary {
+            display: inline-block;
+            background: #b86d43;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header style="text-align: center; padding: 20px 0; border-bottom: 1px solid #efe8e2;">
+        <a href="index.html" style="text-decoration: none; font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: #b86d43;">Jespar Naturals</a>
+    </header>
+
+    <div class="survey-container">
+        <div class="survey-header">
+            <span class="badge-tag">🧴 45-Sec Skin Barrier Assessment</span>
+            <h1 class="survey-title">Diagnose Your Skin Barrier Health</h1>
+            <p class="survey-desc">Complete this clinical assessment to lock your 15% VIP Launch Discount Code on WhatsApp.</p>
+        </div>
+
+        <form id="skinSurveyForm" onsubmit="handleStandaloneFormSubmit(event, 'skin')">
+            <input type="hidden" name="survey_type" value="skin">
+
+            <!-- Q1 -->
+            <div class="form-group">
+                <label class="question-label">1. What is your age group?</label>
+                <div class="options-grid">
+                    <label class="option-card"><input type="radio" name="age" value="Under 18" required><span class="option-text">Under 18</span></label>
+                    <label class="option-card"><input type="radio" name="age" value="18 - 25"><span class="option-text">18 - 25 (Gen-Z)</span></label>
+                    <label class="option-card"><input type="radio" name="age" value="26 - 35"><span class="option-text">26 - 35 (Millennial)</span></label>
+                    <label class="option-card"><input type="radio" name="age" value="36 - 45"><span class="option-text">36 - 45</span></label>
+                    <label class="option-card"><input type="radio" name="age" value="46+"><span class="option-text">46+</span></label>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="form-group">
+                <label class="question-label">2. Which daily living environment do you spend most of your time in?</label>
+                <div class="options-grid">
+                    <label class="option-card"><input type="radio" name="environment" value="Air-Conditioned Rooms (8+ hrs)" required><span class="option-text">8+ hours daily in Air-Conditioned rooms/offices (High moisture loss)</span></label>
+                    <label class="option-card"><input type="radio" name="environment" value="Outdoor Sun & Pollution"><span class="option-text">Daily outdoor commute in city pollution, dust, and UV sun</span></label>
+                    <label class="option-card"><input type="radio" name="environment" value="Humid Coastal (Vizag, Chennai)"><span class="option-text">Humid coastal region (Vizag, Chennai)</span></label>
+                    <label class="option-card"><input type="radio" name="environment" value="Dry Arid Region"><span class="option-text">Dry / Arid climate region</span></label>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="form-group">
+                <label class="question-label">3. What is your primary facial skin challenge?</label>
+                <span class="question-subtext">Select all that apply.</span>
+                <div class="options-grid">
+                    <label class="option-card"><input type="checkbox" name="concern" value="Dry Tight Skin"><span class="option-text">Dry, tight, or papery skin 15 minutes after washing</span></label>
+                    <label class="option-card"><input type="checkbox" name="concern" value="Redness & Stinging"><span class="option-text">Redness, stinging, or easily irritated skin barrier</span></label>
+                    <label class="option-card"><input type="checkbox" name="concern" value="Hairline Bumps & Acne"><span class="option-text">Acne or tiny clogged bumps near forehead & hairline</span></label>
+                    <label class="option-card"><input type="checkbox" name="concern" value="Dull Rough Texture"><span class="option-text">Dull skin with rough, flaky patches</span></label>
+                    <label class="option-card"><input type="checkbox" name="concern" value="None"><span class="option-text">None of the above</span></label>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="form-group">
+                <label class="question-label">4. How does your facial skin feel 15 minutes after cleansing with water or cleanser?</label>
+                <div class="options-grid">
+                    <label class="option-card"><input type="radio" name="cleansing_feel" value="Uncomfortably Tight" required><span class="option-text">Uncomfortably tight, stiff, or stretched</span></label>
+                    <label class="option-card"><input type="radio" name="cleansing_feel" value="Stings or Red"><span class="option-text">Stings when applying basic creams, or gets red/flaky</span></label>
+                    <label class="option-card"><input type="radio" name="cleansing_feel" value="Oily T-Zone & Dry Cheeks"><span class="option-text">Oily T-Zone (forehead/nose) but dry cheeks</span></label>
+                    <label class="option-card"><input type="radio" name="cleansing_feel" value="Comfortable"><span class="option-text">Comfortable and balanced</span></label>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="form-group">
+                <label class="question-label">5. How do you currently treat facial dryness or skin sensitivity?</label>
+                <span class="question-subtext">Select all that apply.</span>
+                <div class="options-grid">
+                    <label class="option-card"><input type="checkbox" name="treatment" value="Heavy Oils / Creams"><span class="option-text">Heavy moisturizers or natural oils (coconut/almond oil)</span></label>
+                    <label class="option-card"><input type="checkbox" name="treatment" value="Standard Lotions"><span class="option-text">Standard body lotions or light gel moisturizers</span></label>
+                    <label class="option-card"><input type="checkbox" name="treatment" value="Prescribed Creams"><span class="option-text">Dermatologist prescribed creams</span></label>
+                    <label class="option-card"><input type="checkbox" name="treatment" value="Avoid Moisturizers"><span class="option-text">I avoid moisturizers completely because they feel sticky/cause pimples</span></label>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="form-group">
+                <label class="question-label">6. What is your biggest frustration with facial moisturizers?</label>
+                <span class="question-subtext">Select all that apply.</span>
+                <div class="options-grid">
+                    <label class="option-card"><input type="checkbox" name="frustration" value="Too Sticky / Causes Acne"><span class="option-text">Creams feel sticky, heavy, or cause acne breakouts</span></label>
+                    <label class="option-card"><input type="checkbox" name="frustration" value="Fades Fast / Still Dry"><span class="option-text">Moisturizers fade in 1 hour, leaving skin dry again</span></label>
+                    <label class="option-card"><input type="checkbox" name="frustration" value="Too Expensive"><span class="option-text">High-quality ceramide creams are too expensive</span></label>
+                    <label class="option-card"><input type="checkbox" name="frustration" value="No Frustrations"><span class="option-text">No frustrations</span></label>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="form-group">
+                <label class="question-label">7. Does your facial skin sting or get red when you sweat, go in the sun, or apply basic skincare?</label>
+                <div class="options-grid">
+                    <label class="option-card"><input type="radio" name="sun_stinging" value="Stings in Sweat/Sun" required><span class="option-text">Yes, my face stings or turns red easily when sweating or in sun (Needs Centella Cica)</span></label>
+                    <label class="option-card"><input type="radio" name="sun_stinging" value="Tight in AC Rooms"><span class="option-text">Yes, skin feels dry & tight in AC rooms</span></label>
+                    <label class="option-card"><input type="radio" name="sun_stinging" value="No Stinging"><span class="option-text">No, my skin is resilient and comfortable</span></label>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="form-group">
+                <label class="question-label">8. What happens when you wash off daily sunscreen or makeup?</label>
+                <div class="options-grid">
+                    <label class="option-card"><input type="radio" name="sunscreen_feel" value="Stripped and Dry" required><span class="option-text">Cleansing leaves my face uncomfortably dry, tight, or stripped</span></label>
+                    <label class="option-card"><input type="radio" name="sunscreen_feel" value="Causes Hairline Bumps"><span class="option-text">Sunscreens cause tiny acne breakouts near my forehead/hairline</span></label>
+                    <label class="option-card"><input type="radio" name="sunscreen_feel" value="Don't Wear Sunscreen"><span class="option-text">I don't wear sunscreen or makeup daily</span></label>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="form-group">
+                <label class="question-label">9. What type of facial cream texture do you prefer?</label>
+                <div class="options-grid">
+                    <label class="option-card"><input type="radio" name="texture_pref" value="Ultra-lightweight Cloud Cream" required><span class="option-text">Ultra-lightweight 'Cloud Cream' (melts in 5 seconds with ZERO greasy shine)</span></label>
+                    <label class="option-card"><input type="radio" name="texture_pref" value="Rich Heavy Oil/Butter"><span class="option-text">Rich heavy oil/butter cream</span></label>
+                    <label class="option-card"><input type="radio" name="texture_pref" value="Open to Any Texture"><span class="option-text">I am open to trying any texture if it works</span></label>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="form-group">
+                <label class="question-label">10. Do you have known ingredient allergies or a history of skin reactions to products?</label>
+                <span class="question-subtext">Select all that apply.</span>
+                <div class="options-grid">
+                    <label class="option-card"><input type="checkbox" name="allergies" value="Known Allergy (Fragrance/Silicones/Niacinamide)"><span class="option-text">Yes, I have KNOWN allergies (e.g. Artificial Fragrance, Essential Oils, Niacinamide, Silicones)</span></label>
+                    <label class="option-card"><input type="checkbox" name="allergies" value="Unknown Allergy (Reacts to new creams)"><span class="option-text">I don't know the exact ingredient name, BUT my skin gets rashes, stinging, or bumps with new products</span></label>
+                    <label class="option-card"><input type="checkbox" name="allergies" value="No Allergies"><span class="option-text">No known allergies (My skin rarely reacts badly)</span></label>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="form-group">
+                <label class="question-label">11. What is your #1 facial skin goal for the next 30 days?</label>
+                <div class="options-grid">
+                    <label class="option-card"><input type="radio" name="goal" value="72-Hour Moisture Lock" required><span class="option-text">72-Hour deep moisture lock with ZERO greasy shine</span></label>
+                    <label class="option-card"><input type="radio" name="goal" value="Calm Stinging Redness"><span class="option-text">Calm stinging redness & repair damaged skin barrier</span></label>
+                    <label class="option-card"><input type="radio" name="goal" value="Smooth Plump Texture"><span class="option-text">Smooth, plump skin texture without clogged pores</span></label>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="form-group">
+                <label class="question-label">12. For a clinical ceramide cream that delivers 72-hour moisture, what monthly budget range feels reasonable?</label>
+                <div class="options-grid">
+                    <label class="option-card"><input type="radio" name="budget" value="< 300" required><span class="option-text">Below ₹300 (&lt; 300)</span></label>
+                    <label class="option-card"><input type="radio" name="budget" value="300 - 500"><span class="option-text">₹300 - ₹500</span></label>
+                    <label class="option-card"><input type="radio" name="budget" value="500+"><span class="option-text">₹500+</span></label>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="form-group">
+                <label class="question-label">13. Where should we send your 15% VIP Discount Code once launched?</label>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 14px;">
+                    <input type="text" name="name" class="text-input" placeholder="Your Full Name" required>
+                    <input type="text" name="phone" class="text-input" placeholder="WhatsApp Phone Number (e.g. 9876543210)" required>
+                    <input type="email" name="email" class="text-input" placeholder="Email Address (Optional)">
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="skinSubmitBtn">Reserve 15% VIP Code on WhatsApp ✨</button>
+        </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-card">
+            <div style="font-size: 48px; margin-bottom: 8px;">🎉</div>
+            <h2 style="font-family: 'Playfair Display', serif; color: #2b1a13; margin-bottom: 8px;">Thank You for Completing the Assessment!</h2>
+            <p style="color: #6b6851; font-size: 14px; margin-bottom: 16px;">Your responses and 15% VIP Launch Discount Code are locked.</p>
+            
+            <div class="voucher-box">
+                <div style="font-size: 12px; text-transform: uppercase; color: #d49b6a; font-weight: 700;">VIP Early-Bird Discount Code</div>
+                <div class="voucher-code">JESPARVIP15</div>
+                <div style="font-size: 12px; color: #b8a69d;">Reserved for your WhatsApp number</div>
+            </div>
+
+            <p style="font-size: 14px; color: #574e44; line-height: 1.6; margin-bottom: 16px;">
+                We will share your complete routine details and private VIP shopping link directly on your WhatsApp number the moment our batch is launched!
+            </p>
+
+            <div style="font-size: 13px; color: #b86d43; font-weight: 600; margin-bottom: 16px; background: rgba(184, 109, 67, 0.1); padding: 10px; border-radius: 8px;">
+                ⏱️ Redirecting back to home page in <span id="countdown">5</span> seconds...
+            </div>
+            
+            <a href="index.html" class="btn-secondary">Go to Home Page Now ➔</a>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

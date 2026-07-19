@@ -416,3 +416,97 @@ function showToast(message) {
     toast.style.transform = 'translateY(20px)';
   }, 4500);
 }
+
+/* Standalone Hair & Skin Survey Handlers */
+document.addEventListener('DOMContentLoaded', () => {
+  const hairForm = document.getElementById('hairSurveyForm');
+  const skinForm = document.getElementById('skinSurveyForm');
+
+  if (hairForm) {
+    hairForm.addEventListener('submit', (e) => handleStandaloneFormSubmit(e, 'hair'));
+  }
+  if (skinForm) {
+    skinForm.addEventListener('submit', (e) => handleStandaloneFormSubmit(e, 'skin'));
+  }
+});
+
+function handleStandaloneFormSubmit(event, surveyType) {
+  if (event) event.preventDefault();
+  const form = event.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.innerHTML;
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Submitting & Generating Voucher... ⏳';
+
+  const formData = new FormData(form);
+  const data = {};
+
+  formData.forEach((value, key) => {
+    if (data[key]) {
+      if (Array.isArray(data[key])) {
+        data[key].push(value);
+      } else {
+        data[key] = [data[key], value];
+      }
+    } else {
+      data[key] = value;
+    }
+  });
+
+  // Convert array checkboxes to comma-separated strings
+  for (let k in data) {
+    if (Array.isArray(data[k])) {
+      data[k] = data[k].join(', ');
+    }
+  }
+
+  data.survey_type = surveyType;
+
+  // Send to Google Sheets Apps Script Webhook
+  if (GOOGLE_SHEET_SCRIPT_URL) {
+    fetch(GOOGLE_SHEET_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams(data).toString()
+    }).catch(err => console.log('Webhook submission notice:', err));
+  }
+
+  // Save lead locally in localStorage
+  const existingLeads = JSON.parse(localStorage.getItem('jespar_survey_leads') || '[]');
+  data.timestamp = new Date().toLocaleString();
+  existingLeads.push(data);
+  localStorage.setItem('jespar_survey_leads', JSON.stringify(existingLeads));
+
+  setTimeout(() => {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnText;
+
+    const modal = document.getElementById('successModal');
+    if (modal) {
+      modal.style.display = 'flex';
+
+      // 5-second countdown and auto-redirect to index.html
+      let secondsLeft = 5;
+      const countdownEl = document.getElementById('countdown');
+      const timer = setInterval(() => {
+        secondsLeft--;
+        if (countdownEl) countdownEl.textContent = secondsLeft;
+        if (secondsLeft <= 0) {
+          clearInterval(timer);
+          window.location.href = 'index.html';
+        }
+      }, 1000);
+    } else {
+      alert('🎉 Thank you! Your responses have been saved. Redirecting to homepage...');
+      window.location.href = 'index.html';
+    }
+  }, 1000);
+}
+
+window.handleStandaloneFormSubmit = handleStandaloneFormSubmit;
+
+

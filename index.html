@@ -40,10 +40,11 @@
       </a>
     </div>
     <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="hair-survey.html">💇‍♀️ Hair Assessment</a></li>
+      <li><a href="skin-survey.html">🧴 Skin Assessment</a></li>
       <li><a href="#products">Catalogue</a></li>
-      <li><a href="#survey">Skin & Scalp Survey</a></li>
-      <li><a href="#lab-tests">Lab Testing & Safety</a></li>
+      <li><a href="#lab-tests">Lab Testing</a></li>
     </ul>
     <div class="nav-actions">
       <div class="nav-social-icons">
@@ -73,11 +74,11 @@
         Jespar Naturals restores your skin barrier and feeds your scalp with targeted bio-actives — combining water-light copper peptides & active rosemary for follicle density, alongside essential ceramides & 5% postbiotics for deep skin hydration.
       </p>
       <div class="hero-ctas">
-        <a href="#survey" class="btn-hero-primary">
-          🌿 Fill Consultation Survey ➔
+        <a href="hair-survey.html" class="btn-hero-primary">
+          💆‍♀️ Take 45s Hair Assessment ➔
         </a>
-        <a href="#products" class="btn-hero-secondary">
-          📦 Explore Full Catalogue
+        <a href="skin-survey.html" class="btn-hero-secondary">
+          🧴 Take 45s Skin Assessment ➔
         </a>
       </div>
       <div class="hero-proof-bar">
@@ -106,206 +107,30 @@
     </div>
   </section>
 
-  <!-- 4. Master Skin, Hair & Scalp Consultation Survey Wizard -->
+  <!-- 4. Clinical Assessment Hub Section -->
   <section class="section-wrapper" id="survey">
-    <div class="quiz-section-card">
-      <div class="quiz-header">
-        <div class="section-subtitle">Clinical Genesis Edition</div>
-        <h2>Jespar Skin & Scalp Consultation</h2>
-        <p>Complete our 90-second consultation survey to receive a personalized skincare & scalp guide + 20% discount coupons at launch!</p>
+    <div class="section-header">
+      <div class="section-subtitle">Clinical Diagnostics</div>
+      <h2 class="section-title">Pre-Launch Assessment Hub</h2>
+      <p class="section-desc">Select your target assessment below to find your bio-active routine, unlock a 15% VIP discount code, and get a free clinical care PDF guide.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 36px;">
+      <!-- Card 1: Hair Assessment -->
+      <div style="background: #ffffff; border: 1px solid rgba(184, 109, 67, 0.2); border-radius: 20px; padding: 36px 28px; box-shadow: 0 10px 30px rgba(43, 26, 19, 0.05); text-align: center; transition: transform 0.3s ease;">
+        <div style="font-size: 44px; margin-bottom: 16px;">💆‍♀️</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: var(--coffee-espresso); margin-bottom: 12px;">Hair & Scalp Assessment</h3>
+        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">Diagnose hair fall, scalp oiliness, and dandruff in 45 seconds. Get your custom Copper Peptide routine + free Scalp PDF Guide.</p>
+        <a href="hair-survey.html" class="btn-hero-primary" style="display: block; width: 100%;">Take Hair Assessment ➔</a>
       </div>
 
-      <div class="quiz-progress-bar-wrap">
-        <div class="quiz-progress-bar" id="surveyProgressBar"></div>
+      <!-- Card 2: Skin Assessment -->
+      <div style="background: #ffffff; border: 1px solid rgba(184, 109, 67, 0.2); border-radius: 20px; padding: 36px 28px; box-shadow: 0 10px 30px rgba(43, 26, 19, 0.05); text-align: center; transition: transform 0.3s ease;">
+        <div style="font-size: 44px; margin-bottom: 16px;">🧴</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: var(--coffee-espresso); margin-bottom: 12px;">Facial Skin & Barrier Assessment</h3>
+        <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">Diagnose skin barrier tightness, redness, and dryness in 45 seconds. Get your custom Ceramide routine + free Skin Barrier PDF Guide.</p>
+        <a href="skin-survey.html" class="btn-hero-secondary" style="display: block; width: 100%;">Take Skin Assessment ➔</a>
       </div>
-
-      <!-- Step 1: Age & Environment -->
-      <div class="quiz-step-card active" id="surveyStep1">
-        <div class="quiz-question-title">Step 1 of 5: Demographics & Living Environment</div>
-        
-        <div class="form-group mb-4">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">1. What is your age group?</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, 'Under 20')">Under 20</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, '20–29')">20–29</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, '30–39')">30–39</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, '40–49')">40–49</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, '50+')">50+</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">2. Which environment do you live in? (Affects skin & scalp barrier)</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'environment', this, 'Metro City / Highly Polluted')">🏙️ Metro City / High Pollution</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'environment', this, 'Dry / Arid Climate')">🌵 Dry / Arid Climate</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'environment', this, 'Hot & Humid Coastal')">🏖️ Hot & Humid Coastal</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'environment', this, 'Cold / Indoor AC Heavy')">❄️ Cold / Indoor AC Heavy</div>
-          </div>
-        </div>
-
-        <div class="quiz-nav-row">
-          <span></span>
-          <button class="btn-hero-primary" onclick="nextSurveyStep(1)">Next Step ➔</button>
-        </div>
-      </div>
-
-      <!-- Step 2: Concerns & Current Treatments -->
-      <div class="quiz-step-card" id="surveyStep2">
-        <div class="quiz-question-title">Step 2 of 5: Skin & Scalp Concerns & Current Treatments</div>
-
-        <div class="form-group mb-4">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">3. What is your primary skin or scalp concern?</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'concern', this, 'Hair Thinning & Scalp Fall')">💇 Hair Thinning & Scalp Hair Fall</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'concern', this, 'Dry Skin & Compromised Barrier')">🏜️ Dry Skin & Damaged Barrier</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'concern', this, 'Flaky Scalp & Itchiness')">❄️ Flaky Scalp & Itchiness</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'concern', this, 'Sensitive Skin & Redness')">🌿 Sensitive Skin & Irritation</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">4. How do you currently treat skin barrier or scalp issues?</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'treatment', this, 'Heavy Hair Oils (Coconut/Onion)')">🥥 Heavy Hair Oils</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'treatment', this, 'Standard Body Lotions & Creams')">🧴 Standard Lotions / Creams</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'treatment', this, 'Dermatologist Supplements')">💊 Derm Supplements / Minoxidil</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'treatment', this, 'No Active Treatment Yet')">❌ No Active Treatment Yet</div>
-          </div>
-        </div>
-
-        <div class="quiz-nav-row">
-          <button class="btn-hero-secondary" onclick="prevSurveyStep(2)">⬅️ Back</button>
-          <button class="btn-hero-primary" onclick="nextSurveyStep(2)">Next Step ➔</button>
-        </div>
-      </div>
-
-      <!-- Step 3: Texture Preference & Customization -->
-      <div class="quiz-step-card" id="surveyStep3">
-        <div class="quiz-question-title">Step 3 of 5: Product Texture & Customization</div>
-
-        <div class="form-group mb-4">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">5. Do you prefer light fast-absorbing formulations or heavy traditional oils/creams?</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'texture', this, 'Light Fast-Absorbing Formulations')">💧 Light Fast-Absorbing Formulations</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'texture', this, 'Traditional Heavy Oils & Creams')">🧴 Heavy Traditional Oils & Creams</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'texture', this, 'Open to Both')">✨ Open to Both</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">6. Would you buy skin & scalp products customized based on an online consultation?</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'customization', this, 'Yes, Absolutely!')">🎯 Yes, Absolutely!</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'customization', this, 'Yes, if Clinical Results Proven')">🔬 Yes, if Results Proven</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'customization', this, 'Maybe / Price Dependent')">🤔 Maybe / Depends on Price</div>
-          </div>
-        </div>
-
-        <div class="quiz-nav-row">
-          <button class="btn-hero-secondary" onclick="prevSurveyStep(3)">⬅️ Back</button>
-          <button class="btn-hero-primary" onclick="nextSurveyStep(3)">Next Step ➔</button>
-        </div>
-      </div>
-
-      <!-- Step 4: Budget & Routine Consistency -->
-      <div class="quiz-step-card" id="surveyStep4">
-        <div class="quiz-question-title">Step 4 of 5: Budget & Routine Habits</div>
-
-        <div class="form-group mb-4">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">7. What is your monthly budget for skin & scalp care products that deliver visible results?</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'budget', this, 'Under ₹499')">Under ₹499</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'budget', this, '₹500 – ₹899')">₹500 – ₹899</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'budget', this, '₹900 – ₹1,499')">₹900 – ₹1,499</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'budget', this, '₹1,500+')">₹1,500+</div>
-          </div>
-        </div>
-
-        <div class="form-group mb-4">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">8. On a scale of 1–5, how consistent are you with your daily skin & hair routine?</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '1 (Rarely)')">1 (Rarely)</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '2 (Occasionally)')">2 (Occasionally)</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '3 (Moderate)')">3 (Moderate)</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '4 (Consistent)')">4 (Consistent)</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '5 (Daily Dedicated)')">5 (Daily Dedicated)</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">9. What is the biggest barrier preventing you from maintaining a routine?</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'barrier', this, 'Greasiness & Wash Hassle')">🍳 Greasiness & Sticky Feeling</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'barrier', this, 'Lack of Visible Results')">⏳ Lack of Visible Results</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'barrier', this, 'Forgetfulness / Time')">⏰ Forgetfulness / Lack of Time</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'barrier', this, 'High Product Cost')">💰 High Product Cost</div>
-          </div>
-        </div>
-
-        <div class="quiz-nav-row">
-          <button class="btn-hero-secondary" onclick="prevSurveyStep(4)">⬅️ Back</button>
-          <button class="btn-hero-primary" onclick="nextSurveyStep(4)">Final Step ➔</button>
-        </div>
-      </div>
-
-      <!-- Step 5: Product Reservation & Contact Details -->
-      <div class="quiz-step-card" id="surveyStep5">
-        <div class="quiz-question-title">Step 5 of 5: Clinical Genesis Edition Reservation & Coupon Delivery</div>
-
-        <div class="form-group mb-4">
-          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">10. Which product would you like reserved?</label>
-          <div class="quiz-options-grid">
-            <div class="quiz-option-btn" onclick="selectSurveyOption(5, 'product', this, 'Jespar Active Scalp Serum (30ml Dropper)')">🧪 Jespar Active Scalp Serum (30ml Dropper)</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(5, 'product', this, 'Jespar Multi-Barrier Cloud Cream (100ml Tube)')">🧴 Jespar Multi-Barrier Cloud Cream (100ml Squeeze Tube)</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(5, 'product', this, 'Jespar pH-Balanced Syndet Beauty Bar (100g)')">🧼 Jespar pH-Balanced Syndet Beauty Bar (100g)</div>
-            <div class="quiz-option-btn" onclick="selectSurveyOption(5, 'product', this, 'Jespar Scalp-Clarifying Peptide Shampoo (200ml)')">🌿 Jespar Scalp-Clarifying Peptide Shampoo (200ml)</div>
-          </div>
-        </div>
-
-        <form onsubmit="submitMasterSurvey(event)" style="max-width: 540px; margin: 24px auto 0;">
-          <div class="form-group">
-            <label for="surveyName">Full Name *</label>
-            <input type="text" id="surveyName" class="form-control" placeholder="Priya Kethana" required>
-          </div>
-          <div class="form-group">
-            <label for="surveyEmail">Email Address *</label>
-            <input type="email" id="surveyEmail" class="form-control" placeholder="hello@jesparnaturals.com" required>
-          </div>
-          <div class="form-group">
-            <label for="surveyPhone">Phone Number / WhatsApp * (For Coupon & Guide Delivery)</label>
-            <input type="tel" id="surveyPhone" class="form-control" placeholder="+91 98765 43210" required>
-          </div>
-          
-          <div class="quiz-nav-row" style="margin-top: 24px;">
-            <button type="button" class="btn-hero-secondary" onclick="prevSurveyStep(5)">⬅️ Back</button>
-            <button type="submit" class="btn-hero-primary">
-              ✨ Complete Survey & Claim Coupons ➔
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Results & Thank You Screen -->
-      <div class="quiz-results-card" id="surveyResultsCard">
-        <div class="routine-match-badge">💚 THANK YOU FOR COMPLETING OUR SURVEY!</div>
-        <h3 style="font-size: 2.2rem; color: var(--coffee-espresso); margin-bottom: 16px;">
-          Your Consultation is Complete!
-        </h3>
-        <div style="background: rgba(184, 109, 67, 0.1); border: 1px dashed var(--copper-primary); border-radius: var(--radius-md); padding: 24px; max-width: 650px; margin: 0 auto 24px; text-align: center;">
-          <p style="font-size: 1.1rem; color: var(--coffee-espresso); font-weight: 700; margin-bottom: 8px;">
-            🎁 Once Jespar Naturals officially launches:
-          </p>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">
-            We will share your <strong>Detailed Skincare & Scalp Routine Guide</strong> along with your <strong>20% Early-Bird Discount Coupons</strong> directly to your WhatsApp (<span id="thanksPhoneText"></span>) and Email (<span id="thanksEmailText"></span>)!
-          </p>
-        </div>
-        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="#products" class="btn-hero-primary">Explore Product Formulations ➔</a>
-          <button class="btn-hero-secondary" onclick="openVipModal()">View VIP Reservations</button>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -593,9 +418,10 @@
       <div>
         <h4 class="footer-title">Quick Links</h4>
         <ul class="footer-links">
-          <li><a href="#hero">Home</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="hair-survey.html">💇‍♀️ Hair Assessment</a></li>
+          <li><a href="skin-survey.html">🧴 Skin Assessment</a></li>
           <li><a href="#products">Catalogue</a></li>
-          <li><a href="#survey">Consultation Survey</a></li>
           <li><a href="#lab-tests">Lab Testing Progress</a></li>
         </ul>
       </div>
@@ -616,7 +442,7 @@
   </footer>
 
   <!-- 10. Mobile Integrated Floating Action Pill Widget for Survey -->
-  <a href="#survey" class="mobile-circular-fab" aria-label="Take Skin & Scalp Survey">
+  <a href="#survey" class="mobile-circular-fab" aria-label="Take Assessment">
     <div class="fab-circle">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -624,9 +450,9 @@
         <line x1="16" y1="13" x2="8" y2="13"></line>
         <line x1="16" y1="17" x2="8" y2="17"></line>
       </svg>
-      <span class="fab-badge">20% OFF</span>
+      <span class="fab-badge">15% VIP</span>
     </div>
-    <span class="fab-label">Take Survey ➔</span>
+    <span class="fab-label">Assessments ➔</span>
   </a>
 
   <script src="app.js"></script>
