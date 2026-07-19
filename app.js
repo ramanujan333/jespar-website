@@ -2,7 +2,7 @@
    Jespar Naturals — Master Consultation Survey Logic & Google Sheets Auto-Sync
    ========================================================================== */
 
-let GOOGLE_SHEET_SCRIPT_URL = localStorage.getItem('jespar_google_sheet_url') || '';
+let GOOGLE_SHEET_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby-gzken8_mcB-2ax5_d5mTF2Wy-5TFyHPPkHZAcizSd4eIzfWGXC2HU_wyyPwDSHjy5Q/exec';
 let surveyData = {
   age: '',
   environment: '',
