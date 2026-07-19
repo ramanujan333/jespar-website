@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jespar Naturals — Bio-Active Clinical Scalp & Skin Care</title>
+  <meta name="description" content="Jespar Naturals provides clinical water-light copper peptides, postbiotics, and active rosemary for superior scalp barrier and skin health. Explore our full product catalogue.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="assets/logo.png?v=2" type="image/png">
+</head>
+<body>
+
+  <!-- Floating Botanical Nature Particles Canvas -->
+  <canvas id="natureCanvas"></canvas>
+
+  <!-- 1. Announcement Bar -->
+  <div class="announcement-bar">
+    <span class="badge">Sales Coming Soon</span>
+    <span>🚀 Clinical Genesis Edition 92% Complete! Complete our survey to receive a free Skincare Guide + 20% Launch Coupons!</span>
+    <a href="#survey" class="announcement-link">Take Survey ➔</a>
+  </div>
+
+  <!-- 2. Sticky Navbar -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <a href="#hero">
+        <img src="assets/logo.png?v=2" alt="Jespar Naturals" class="nav-logo-img">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#products">Catalogue</a></li>
+      <li><a href="#survey">Scalp Survey</a></li>
+      <li><a href="#lab-tests">Lab Testing & Safety</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-primary-sm" onclick="openVipModal()">✨ VIP Early Access</button>
+    </div>
+  </header>
+
+  <!-- 3. Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        <span>Pre-Launch Clinical Phase</span>
+      </div>
+
+      <h1 class="hero-title">
+        Bio-Active Science Meets <span class="copper-accent">Botanical Elegance</span>
+      </h1>
+      <p class="hero-subtitle">
+        Mass-market hair oils clog your scalp pores. Jespar Naturals feeds your scalp barrier with water-light copper peptides, ceramides, 5% postbiotics, and active rosemary extract for high follicle density.
+      </p>
+      <div class="hero-ctas">
+        <a href="#survey" class="btn-hero-primary">
+          🌿 Fill Consultation Survey ➔
+        </a>
+        <a href="#products" class="btn-hero-secondary">
+          📦 Explore Full Catalogue
+        </a>
+      </div>
+      <div class="hero-proof-bar">
+        <div class="proof-item">
+          <span class="number">3%</span>
+          <span class="label">Copper Peptides</span>
+        </div>
+        <div class="proof-item">
+          <span class="number">100%</span>
+          <span class="label">Vegan & Toxin-Free</span>
+        </div>
+        <div class="proof-item">
+          <span class="number">CDSCO</span>
+          <span class="label">Certified GMP Facility</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual-container">
+      <div class="hero-main-card">
+        <img src="assets/serum_concept.jpg" alt="Jespar Active Scalp Serum Clinical Genesis Edition Packaging">
+        <div class="hero-floating-badge">
+          <div class="title">🔬 Lab Progress: 92%</div>
+          <div class="desc">Dermatological human patch testing completing. Commercial sales opening soon.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Master Hair & Scalp Consultation Survey Wizard -->
+  <section class="section-wrapper" id="survey">
+    <div class="quiz-section-card">
+      <div class="quiz-header">
+        <div class="section-subtitle">Clinical Genesis Edition</div>
+        <h2>Jespar Hair & Scalp Consultation</h2>
+        <p>Complete our 90-second consultation survey to receive a personalized skincare guide + 20% discount coupons at launch!</p>
+      </div>
+
+      <div class="quiz-progress-bar-wrap">
+        <div class="quiz-progress-bar" id="surveyProgressBar"></div>
+      </div>
+
+      <!-- Step 1: Age & Environment -->
+      <div class="quiz-step-card active" id="surveyStep1">
+        <div class="quiz-question-title">Step 1 of 5: Demographics & Living Environment</div>
+        
+        <div class="form-group mb-4">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">1. What is your age group?</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, 'Under 20')">Under 20</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, '20–29')">20–29</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, '30–39')">30–39</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, '40–49')">40–49</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'age', this, '50+')">50+</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">2. Which environment do you live in? (Affects scalp barrier)</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'environment', this, 'Metro City / Highly Polluted')">🏙️ Metro City / High Pollution</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'environment', this, 'Dry / Arid Climate')">🌵 Dry / Arid Climate</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'environment', this, 'Hot & Humid Coastal')">🏖️ Hot & Humid Coastal</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(1, 'environment', this, 'Cold / Indoor AC Heavy')">❄️ Cold / Indoor AC Heavy</div>
+          </div>
+        </div>
+
+        <div class="quiz-nav-row">
+          <span></span>
+          <button class="btn-hero-primary" onclick="nextSurveyStep(1)">Next Step ➔</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Concerns & Current Treatments -->
+      <div class="quiz-step-card" id="surveyStep2">
+        <div class="quiz-question-title">Step 2 of 5: Scalp Concerns & Current Treatments</div>
+
+        <div class="form-group mb-4">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">3. What is your primary hair or scalp concern?</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'concern', this, 'Hair Thinning & Fall')">💇 Hair Thinning & Excessive Fall</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'concern', this, 'Dry Flakes & Itchiness')">❄️ Dry Flakes & Itchy Scalp</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'concern', this, 'Oily Roots & Clogged Pores')">🛢️ Oily Roots & Greasiness</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'concern', this, 'Weak Shaft & Slow Growth')">🌱 Weak Shaft & Slow Growth</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">4. How do you currently treat hair fall or scalp issues?</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'treatment', this, 'Heavy Hair Oils (Coconut/Onion)')">🥥 Heavy Traditional Hair Oils</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'treatment', this, 'Anti-Hairfall Shampoos')">🧼 Anti-Hairfall Shampoos</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'treatment', this, 'Dermatologist Supplements')">💊 Derm Supplements / Minoxidil</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(2, 'treatment', this, 'No Active Treatment Yet')">❌ No Active Treatment Yet</div>
+          </div>
+        </div>
+
+        <div class="quiz-nav-row">
+          <button class="btn-hero-secondary" onclick="prevSurveyStep(2)">⬅️ Back</button>
+          <button class="btn-hero-primary" onclick="nextSurveyStep(2)">Next Step ➔</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Texture Preference & Customization -->
+      <div class="quiz-step-card" id="surveyStep3">
+        <div class="quiz-question-title">Step 3 of 5: Product Texture & Customization</div>
+
+        <div class="form-group mb-4">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">5. Do you prefer traditional hair oils, or a water-light serum that absorbs instantly?</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'texture', this, 'Water-Light Non-Greasy Serum')">💧 Water-Light Non-Greasy Serum</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'texture', this, 'Traditional Hair Oils')">🥥 Traditional Heavy Hair Oils</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'texture', this, 'Open to Both')">✨ Open to Both</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">6. Would you buy a hair serum customized based on an online scalp consultation?</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'customization', this, 'Yes, Absolutely!')">🎯 Yes, Absolutely!</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'customization', this, 'Yes, if Clinical Results Proven')">🔬 Yes, if Results Proven</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(3, 'customization', this, 'Maybe / Price Dependent')">🤔 Maybe / Depends on Price</div>
+          </div>
+        </div>
+
+        <div class="quiz-nav-row">
+          <button class="btn-hero-secondary" onclick="prevSurveyStep(3)">⬅️ Back</button>
+          <button class="btn-hero-primary" onclick="nextSurveyStep(3)">Next Step ➔</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Budget & Routine Consistency -->
+      <div class="quiz-step-card" id="surveyStep4">
+        <div class="quiz-question-title">Step 4 of 5: Budget & Routine Habits</div>
+
+        <div class="form-group mb-4">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">7. What is your monthly budget for hair products that deliver visible results?</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'budget', this, 'Under ₹499')">Under ₹499</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'budget', this, '₹500 – ₹899')">₹500 – ₹899</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'budget', this, '₹900 – ₹1,499')">₹900 – ₹1,499</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'budget', this, '₹1,500+')">₹1,500+</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-4">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">8. On a scale of 1–5, how consistent are you with your hair routine?</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '1 (Rarely)')">1 (Rarely)</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '2 (Occasionally)')">2 (Occasionally)</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '3 (Moderate)')">3 (Moderate)</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '4 (Consistent)')">4 (Consistent)</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'consistency', this, '5 (Daily Dedicated)')">5 (Daily Dedicated)</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">9. What is the biggest barrier preventing you from maintaining a routine?</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'barrier', this, 'Greasiness & Wash Hassle')">🍳 Greasiness & Wash Hassle</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'barrier', this, 'Lack of Visible Results')">⏳ Lack of Visible Results</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'barrier', this, 'Forgetfulness / Time')">⏰ Forgetfulness / Lack of Time</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(4, 'barrier', this, 'High Product Cost')">💰 High Product Cost</div>
+          </div>
+        </div>
+
+        <div class="quiz-nav-row">
+          <button class="btn-hero-secondary" onclick="prevSurveyStep(4)">⬅️ Back</button>
+          <button class="btn-hero-primary" onclick="nextSurveyStep(4)">Final Step ➔</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Product Reservation & Contact Details -->
+      <div class="quiz-step-card" id="surveyStep5">
+        <div class="quiz-question-title">Step 5 of 5: Clinical Genesis Edition Reservation & Coupon Delivery</div>
+
+        <div class="form-group mb-4">
+          <label style="font-size: 0.95rem; font-weight: 700; color: var(--coffee-espresso);">10. Which product would you like reserved?</label>
+          <div class="quiz-options-grid">
+            <div class="quiz-option-btn" onclick="selectSurveyOption(5, 'product', this, 'Jespar Active Scalp Serum (30ml Dropper)')">🧪 Jespar Active Scalp Serum (30ml Dropper)</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(5, 'product', this, 'Jespar Multi-Barrier Cloud Cream (100ml Tube)')">🧴 Jespar Multi-Barrier Cloud Cream (100ml Squeeze Tube)</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(5, 'product', this, 'Jespar pH-Balanced Syndet Beauty Bar (100g)')">🧼 Jespar pH-Balanced Syndet Beauty Bar (100g)</div>
+            <div class="quiz-option-btn" onclick="selectSurveyOption(5, 'product', this, 'Jespar Scalp-Clarifying Peptide Shampoo (200ml)')">🌿 Jespar Scalp-Clarifying Peptide Shampoo (200ml)</div>
+          </div>
+        </div>
+
+        <form onsubmit="submitMasterSurvey(event)" style="max-width: 540px; margin: 24px auto 0;">
+          <div class="form-group">
+            <label for="surveyName">Full Name *</label>
+            <input type="text" id="surveyName" class="form-control" placeholder="Priya Kethana" required>
+          </div>
+          <div class="form-group">
+            <label for="surveyEmail">Email Address *</label>
+            <input type="email" id="surveyEmail" class="form-control" placeholder="hello@jesparnaturals.com" required>
+          </div>
+          <div class="form-group">
+            <label for="surveyPhone">Phone Number / WhatsApp * (For Coupon & Guide Delivery)</label>
+            <input type="tel" id="surveyPhone" class="form-control" placeholder="+91 98765 43210" required>
+          </div>
+          
+          <div class="quiz-nav-row" style="margin-top: 24px;">
+            <button type="button" class="btn-hero-secondary" onclick="prevSurveyStep(5)">⬅️ Back</button>
+            <button type="submit" class="btn-hero-primary">
+              ✨ Complete Survey & Claim Coupons ➔
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results & Thank You Screen -->
+      <div class="quiz-results-card" id="surveyResultsCard">
+        <div class="routine-match-badge">💚 THANK YOU FOR COMPLETING OUR SURVEY!</div>
+        <h3 style="font-size: 2.2rem; color: var(--coffee-espresso); margin-bottom: 16px;">
+          Your Consultation is Complete!
+        </h3>
+        <div style="background: rgba(184, 109, 67, 0.1); border: 1px dashed var(--copper-primary); border-radius: var(--radius-md); padding: 24px; max-width: 650px; margin: 0 auto 24px; text-align: center;">
+          <p style="font-size: 1.1rem; color: var(--coffee-espresso); font-weight: 700; margin-bottom: 8px;">
+            🎁 Once Jespar Naturals officially launches:
+          </p>
+          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">
+            We will share your <strong>Detailed Skincare & Scalp Routine Guide</strong> along with your <strong>20% Early-Bird Discount Coupons</strong> directly to your WhatsApp (<span id="thanksPhoneText"></span>) and Email (<span id="thanksEmailText"></span>)!
+          </p>
+        </div>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="#products" class="btn-hero-primary">Explore Product Formulations ➔</a>
+          <button class="btn-hero-secondary" onclick="openVipModal()">View VIP Reservations</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. Pre-Launch E-Commerce Notice Banner -->
+  <section class="section-wrapper">
+    <div class="prelaunch-notice-banner">
+      <div class="notice-icon">⏱️</div>
+      <div class="notice-content">
+        <h3>Sales Opening Soon — Clinical Genesis Edition Phase</h3>
+        <p>
+          We are currently completing final micro-biological stability and dermatological clearance before opening commercial orders. Direct sales will open shortly. Complete our survey above to unlock your skincare guide & launch coupons!
+        </p>
+      </div>
+      <a href="#survey" class="btn-survey-cta">
+        Complete Scalp Survey ➔
+      </a>
+    </div>
+  </section>
+
+  <!-- 6. 4-Product Catalogue Showcase with Redesigned Master Studio Renders -->
+  <section class="section-wrapper" id="products">
+    <div class="section-header">
+      <div class="section-subtitle">Our Bio-Active Formulations</div>
+      <h2 class="section-title">Clinical Product Catalogue</h2>
+      <p class="section-desc">Formulated with high-potency clinical actives, ceramides, postbiotics, and natural botanicals.</p>
+    </div>
+
+    <!-- Explicit Conceptual Disclaimer -->
+    <div class="disclaimer-alert-box">
+      <span class="icon">💡</span>
+      <div>
+        <strong>Conceptual Packaging Disclaimer:</strong> The product renders below feature our exact master logo and explicit product details on custom dropper bottles, squeeze tubes, shampoo bottles, and syndet soap packaging. Physical packaging details will be finalized prior to commercial release.
+      </div>
+    </div>
+
+    <div class="products-grid">
+      <!-- Product Card 1: Scalp Serum -->
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="assets/serum_concept.jpg" alt="Jespar Active Scalp Serum 30ml Amber Glass Dropper Bottle Redesigned Master Render">
+          <span class="status-badge">Clinical Genesis Edition</span>
+        </div>
+        <div class="product-details">
+          <div class="product-tagline">Scalp Barrier & Follicle Density</div>
+          <h3 class="product-title">Jespar Active Scalp Serum (30ml)</h3>
+          <p class="product-description">
+            Water-light peptide treatment engineered in an amber glass dropper bottle to block DHT, rebalance scalp microbiome, and stimulate microcirculation without greasiness.
+          </p>
+          <div class="key-actives-list">
+            <span class="active-pill">3% Copper Peptides</span>
+            <span class="active-pill">Active Rosemary</span>
+            <span class="active-pill">5% Postbiotics</span>
+          </div>
+          <div class="product-actions-box">
+            <div class="btn-disabled-buy">🔒 Sales Coming Soon</div>
+            <button class="btn-notify-interest" onclick="openVipModal('Jespar Active Scalp Serum')">🔔 Express Interest & Get Notified</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2: Cloud Cream Squeeze Tube -->
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="assets/cream_concept.jpg" alt="Jespar Multi-Barrier Cloud Cream 100ml Matte Squeeze Tube Redesigned Master Render">
+          <span class="status-badge">Clinical Genesis Edition</span>
+        </div>
+        <div class="product-details">
+          <div class="product-tagline">Deep Hydration & Barrier Defense</div>
+          <h3 class="product-title">Jespar Multi-Barrier Cloud Cream (100ml Squeeze Tube)</h3>
+          <p class="product-description">
+            Sleek matte squeeze tube containing non-comedogenic moisture barrier cream infused with 3 essential ceramides and ectoin for sensitive skin and dry scalp recovery.
+          </p>
+          <div class="key-actives-list">
+            <span class="active-pill">Squeeze Tube Packaging</span>
+            <span class="active-pill">Ceramides NP/AP/EOP</span>
+            <span class="active-pill">Ectoin 1%</span>
+          </div>
+          <div class="product-actions-box">
+            <div class="btn-disabled-buy">🔒 Sales Coming Soon</div>
+            <button class="btn-notify-interest" onclick="openVipModal('Jespar Multi-Barrier Cloud Cream Tube')">🔔 Express Interest & Get Notified</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3: pH-Balanced Syndet Beauty Bar -->
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="assets/syndet_concept.jpg" alt="Jespar pH-Balanced Syndet Beauty Bar 100g Redesigned Master Render">
+          <span class="status-badge">Upcoming Catalogue</span>
+        </div>
+        <div class="product-details">
+          <div class="product-tagline">Soap-Free Gentle Cleansing</div>
+          <h3 class="product-title">Jespar pH-Balanced Syndet Beauty Bar (100g)</h3>
+          <p class="product-description">
+            100% soap-free syndet cleansing bar formulated at exact skin pH 5.5 with colloidal oat protein and ceramides to cleanse without stripping natural skin oils.
+          </p>
+          <div class="key-actives-list">
+            <span class="active-pill">pH 5.5 Syndet</span>
+            <span class="active-pill">Colloidal Oat</span>
+            <span class="active-pill">Soap-Free</span>
+          </div>
+          <div class="product-actions-box">
+            <div class="btn-disabled-buy">🔒 Sales Coming Soon</div>
+            <button class="btn-notify-interest" onclick="openVipModal('Jespar pH-Balanced Syndet Beauty Bar')">🔔 Express Interest & Get Notified</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 4: Scalp-Clarifying Peptide Shampoo -->
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="assets/shampoo_concept.jpg" alt="Jespar Scalp-Clarifying Peptide Shampoo 200ml Amber Pump Bottle Redesigned Master Render">
+          <span class="status-badge">Upcoming Catalogue</span>
+        </div>
+        <div class="product-details">
+          <div class="product-tagline">Microbiome & Anti-Hairfall Wash</div>
+          <h3 class="product-title">Jespar Scalp-Clarifying Peptide Shampoo (200ml)</h3>
+          <p class="product-description">
+            Sulphate-free bio-active shampoo infused with plant peptides, salicylic acid (0.5%), and rosemary extract to gently dissolve scalp buildup and strengthen hair roots.
+          </p>
+          <div class="key-actives-list">
+            <span class="active-pill">Sulphate-Free</span>
+            <span class="active-pill">Plant Peptides</span>
+            <span class="active-pill">Salicylic Acid 0.5%</span>
+          </div>
+          <div class="product-actions-box">
+            <div class="btn-disabled-buy">🔒 Sales Coming Soon</div>
+            <button class="btn-notify-interest" onclick="openVipModal('Jespar Scalp-Clarifying Peptide Shampoo')">🔔 Express Interest & Get Notified</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Lab Tests & Certifications Tracker -->
+  <section class="section-wrapper" id="lab-tests">
+    <div class="section-header">
+      <div class="section-subtitle">Clinical Rigor & Safety</div>
+      <h2 class="section-title">Lab Tests & Certifications Progress</h2>
+      <p class="section-desc">We publish our testing milestones transparently before a single bottle or tube is released.</p>
+    </div>
+
+    <div class="lab-tracker-container">
+      <div class="tab-filter-bar">
+        <button class="tab-btn active" onclick="filterLabCards('all')">All Tests & Licenses</button>
+        <button class="tab-btn" onclick="filterLabCards('passed')">✅ Passed & Approved</button>
+        <button class="tab-btn" onclick="filterLabCards('progress')">🔄 In Progress</button>
+        <button class="tab-btn" onclick="filterLabCards('compliance')">🏛️ Regulatory & Factory</button>
+      </div>
+
+      <div class="lab-cards-grid">
+        <!-- Lab Card 1 -->
+        <div class="lab-card" data-category="passed">
+          <div class="lab-card-header">
+            <div class="lab-card-title">COA & Micro-Biological Safety</div>
+            <span class="lab-status-tag status-passed">✅ Passed</span>
+          </div>
+          <p class="lab-card-desc">
+            Certificate of Analysis confirming zero heavy metals, zero pathogentic yeast or bacteria, and exact pH (5.5) alignment for scalp health.
+          </p>
+          <div class="lab-card-meta">
+            <span>Standard: CDSCO / IS 14649</span>
+            <span>Verified: Clinical Genesis Edition</span>
+          </div>
+        </div>
+
+        <!-- Lab Card 2 -->
+        <div class="lab-card" data-category="passed">
+          <div class="lab-card-header">
+            <div class="lab-card-title">PET Preservative Efficacy</div>
+            <span class="lab-status-tag status-passed">✅ Passed</span>
+          </div>
+          <p class="lab-card-desc">
+            Preservative Efficacy Testing proving the non-toxic eco-preservative system prevents microbial growth for 24 months.
+          </p>
+          <div class="lab-card-meta">
+            <span>Standard: ISO 11930</span>
+            <span>Duration: 24 Months</span>
+          </div>
+        </div>
+
+        <!-- Lab Card 3 -->
+        <div class="lab-card" data-category="progress">
+          <div class="lab-card-header">
+            <div class="lab-card-title">Dermatological Human Patch Test</div>
+            <span class="lab-status-tag status-progress">🔄 In Progress (92%)</span>
+          </div>
+          <p class="lab-card-desc">
+            48-hour occlusive patch testing on 30 human volunteers under clinical dermatologist supervision to confirm zero skin irritation.
+          </p>
+          <div class="lab-card-meta">
+            <span>Target: 0% Irritation</span>
+            <span>Est. Completion: 10 Days</span>
+          </div>
+        </div>
+
+        <!-- Lab Card 4 -->
+        <div class="lab-card" data-category="compliance">
+          <div class="lab-card-header">
+            <div class="lab-card-title">ISO 22716 & GMP Factory Compliance</div>
+            <span class="lab-status-tag status-approved">🏛️ Certified</span>
+          </div>
+          <p class="lab-card-desc">
+            Manufactured in state-of-the-art cleanrooms by our ISO 22716 & CDSCO-licensed certified contract manufacturing partner adhering to WHO-GMP protocols.
+          </p>
+          <div class="lab-card-meta">
+            <span>License: CDSCO Approved</span>
+            <span>Facility: ISO 22716 GMP</span>
+          </div>
+        </div>
+
+        <!-- Lab Card 5 -->
+        <div class="lab-card" data-category="passed">
+          <div class="lab-card-header">
+            <div class="lab-card-title">100% Vegan & Clean Beauty Audit</div>
+            <span class="lab-status-tag status-passed">✅ Pre-Approved</span>
+          </div>
+          <p class="lab-card-desc">
+            Formulation audited and verified 100% free of animal ingredients, parabens, sulfates, phthalates, silicones, and synthetic dyes.
+          </p>
+          <div class="lab-card-meta">
+            <span>Standard: Clean Science</span>
+            <span>Cruelty-Free Status: 100%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. VIP Access Modal -->
+  <div class="modal-overlay" id="vipModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeVipModal()">&times;</button>
+      <div class="modal-header">
+        <h3>Join VIP Launch List</h3>
+        <p>Be the first to know when Clinical Genesis Edition goes live!</p>
+      </div>
+      <form id="vipForm" onsubmit="handleVipSubmit(event)">
+        <div class="form-group">
+          <label for="vipName">Full Name *</label>
+          <input type="text" id="vipName" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="vipEmail">Email Address *</label>
+          <input type="email" id="vipEmail" class="form-control" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="vipPhone">Phone Number / WhatsApp *</label>
+          <input type="tel" id="vipPhone" class="form-control" placeholder="+91 98765 43210" required>
+        </div>
+        <div class="form-group">
+          <label for="vipProduct">Interested Product</label>
+          <select id="vipProduct" class="form-control">
+            <option value="Jespar Active Scalp Serum">Jespar Active Scalp Serum (Dropper Bottle)</option>
+            <option value="Jespar Multi-Barrier Cloud Cream Tube">Jespar Multi-Barrier Cloud Cream (Squeeze Tube)</option>
+            <option value="Jespar pH-Balanced Syndet Beauty Bar">Jespar pH-Balanced Syndet Beauty Bar (100g)</option>
+            <option value="Jespar Scalp-Clarifying Peptide Shampoo">Jespar Scalp-Clarifying Peptide Shampoo (200ml)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-form-submit">🔔 Confirm VIP Reservation</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 9. Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png?v=2" alt="Jespar Naturals Master Logo">
+        <p>
+          Jespar Naturals develops bio-active clinical hair and scalp solutions using water-light copper peptides, postbiotics, ceramides, and active rosemary extract.
+        </p>
+        <div class="footer-contact-links">
+          <a href="mailto:hello@jesparnaturals.com">hello@jesparnaturals.com</a>
+          <span>&bull;</span>
+          <a href="https://www.instagram.com/jesparnaturals/" target="_blank">@jesparnaturals</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#products">Catalogue</a></li>
+          <li><a href="#survey">Consultation Survey</a></li>
+          <li><a href="#lab-tests">Lab Testing Progress</a></li>
+        </ul>
+      </div>
+      <div class="footer-legal-box">
+        <strong style="color: #fff; display: block; margin-bottom: 6px;">Business Registration & License Info</strong>
+        Entity: <strong>Jespar Naturals</strong> (Proprietorship)<br>
+        MSME Udyam: <code>UDYAM-TS-20-0169025</code><br>
+        GSTIN: <code>36ELVPK5922H1ZJ</code><br>
+        Email: <code>hello@jesparnaturals.com</code><br>
+        Instagram: <code>@jesparnaturals</code><br>
+        Address: Pragathi Nagar, Hyderabad, Telangana - 500090
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Jespar Naturals. All Rights Reserved.</div>
+      <div>Crafted by Nature. Perfected for You.</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
