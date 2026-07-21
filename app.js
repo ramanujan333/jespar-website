@@ -20,8 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
   initNatureParticles();
   initScrollAnimations();
   initSeedLeads();
+  initNavbarScrollListener();
   console.log('Jespar Naturals Master Hair & Scalp Survey Initialized (Clinical Genesis Edition).');
 });
+
+/* Dynamic Mobile Navbar Scroll Shrink */
+function initNavbarScrollListener() {
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('header.navbar');
+    if (navbar) {
+      if (window.scrollY > 30) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    }
+  });
+}
 
 /* Seed demo lead if storage is empty */
 function initSeedLeads() {
@@ -185,10 +200,12 @@ function prevSurveyStep(currentStep) {
 
 /* Validation helpers for contact details */
 function isValidEmail(email) {
+  if (!email) return true; // Optional
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 function isValidPhone(phone) {
+  if (!phone) return true; // Optional
   const digitsOnly = phone.replace(/\D/g, '');
   return digitsOnly.length >= 10 && digitsOnly.length <= 13;
 }
@@ -197,7 +214,6 @@ async function submitMasterSurvey(e) {
   e.preventDefault();
   const form = e.target;
   if (form && form.dataset.submitting === 'true') return;
-  if (form) form.dataset.submitting = 'true';
 
   const name = document.getElementById('surveyName').value.trim();
   const email = document.getElementById('surveyEmail').value.trim();
@@ -205,17 +221,18 @@ async function submitMasterSurvey(e) {
 
   // Validate contact details before submitting
   if (!name || name.length < 2) {
-    showToast('⚠️ Please enter your valid Full Name.');
+    showToast('⚠️ Please enter your Full Name.');
     return;
   }
-  if (!isValidEmail(email)) {
+  if (email && !isValidEmail(email)) {
     showToast('⚠️ Please enter a valid Email Address (e.g. name@example.com).');
     return;
   }
-  if (!isValidPhone(phone)) {
+  if (phone && !isValidPhone(phone)) {
     showToast('⚠️ Please enter a valid 10-digit Phone Number / WhatsApp.');
     return;
   }
+  if (form) form.dataset.submitting = 'true';
 
   const timestamp = new Date().toLocaleString();
 
@@ -316,11 +333,11 @@ async function handleVipSubmit(e) {
   const phone = document.getElementById('vipPhone').value.trim();
   const product = document.getElementById('vipProduct').value;
 
-  if (!isValidEmail(email)) {
+  if (email && !isValidEmail(email)) {
     showToast('⚠️ Please enter a valid Email Address.');
     return;
   }
-  if (!isValidPhone(phone)) {
+  if (phone && !isValidPhone(phone)) {
     showToast('⚠️ Please enter a valid 10-digit Phone Number.');
     return;
   }
@@ -444,7 +461,7 @@ function handleStandaloneFormSubmit(event, surveyType) {
   const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Submitting & Generating Voucher... ⏳';
+    submitBtn.innerHTML = 'Submitting Feedback... ⏳';
   }
 
   const formData = new FormData(form);
@@ -489,32 +506,40 @@ function handleStandaloneFormSubmit(event, surveyType) {
   existingLeads.push(data);
   localStorage.setItem('jespar_survey_leads', JSON.stringify(existingLeads));
 
-  setTimeout(() => {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalBtnText;
+  // Show thank you modal immediately
+  const modal = document.getElementById('successModal');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.classList.add('active');
 
-    const modal = document.getElementById('successModal');
-    if (modal) {
-      modal.style.display = 'flex';
+    // 3-second countdown and auto-redirect to index.html
+    let secondsLeft = 3;
+    const countdownEl = document.getElementById('countdown');
+    if (countdownEl) countdownEl.textContent = secondsLeft;
 
-      // 5-second countdown and auto-redirect to index.html
-      let secondsLeft = 5;
-      const countdownEl = document.getElementById('countdown');
-      const timer = setInterval(() => {
-        secondsLeft--;
-        if (countdownEl) countdownEl.textContent = secondsLeft;
-        if (secondsLeft <= 0) {
-          clearInterval(timer);
-          window.location.href = 'index.html';
-        }
-      }, 1000);
-    } else {
-      alert('🎉 Thank you! Your responses have been saved. Redirecting to homepage...');
-      window.location.href = 'index.html';
-    }
-  }, 1000);
+    const timer = setInterval(() => {
+      secondsLeft--;
+      if (countdownEl) countdownEl.textContent = secondsLeft;
+      if (secondsLeft <= 0) {
+        clearInterval(timer);
+        window.location.href = 'index.html';
+      }
+    }, 1000);
+  } else {
+    alert('💚 Thank you for sharing your feedback! This will be extremely helpful for tuning our formulations to actual customer needs.');
+    window.location.href = 'index.html';
+  }
 }
 
 window.handleStandaloneFormSubmit = handleStandaloneFormSubmit;
+
+/* Floating FAB Section Navigator Toggle */
+function toggleFabMenu() {
+  const popup = document.getElementById('fabMenuPopup');
+  if (popup) {
+    popup.classList.toggle('active');
+  }
+}
+window.toggleFabMenu = toggleFabMenu;
 
 
