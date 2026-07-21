@@ -195,6 +195,10 @@ function isValidPhone(phone) {
 
 async function submitMasterSurvey(e) {
   e.preventDefault();
+  const form = e.target;
+  if (form && form.dataset.submitting === 'true') return;
+  if (form) form.dataset.submitting = 'true';
+
   const name = document.getElementById('surveyName').value.trim();
   const email = document.getElementById('surveyEmail').value.trim();
   const phone = document.getElementById('surveyPhone').value.trim();
@@ -433,11 +437,15 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleStandaloneFormSubmit(event, surveyType) {
   if (event) event.preventDefault();
   const form = event.target;
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalBtnText = submitBtn.innerHTML;
+  if (form.dataset.submitting === 'true') return;
+  form.dataset.submitting = 'true';
 
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = 'Submitting & Generating Voucher... ⏳';
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Submitting & Generating Voucher... ⏳';
+  }
 
   const formData = new FormData(form);
   const data = {};
